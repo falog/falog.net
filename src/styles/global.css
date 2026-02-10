@@ -40,8 +40,8 @@ body {
 	word-wrap: break-word;
 	overflow-wrap: break-word;
 	color: rgb(var(--gray-dark));
-	font-size: 20px;
-	line-height: 1.7;
+	font-size: 18px;
+	line-height: 1.65;
 }
 main {
 	width: 720px;
@@ -60,19 +60,19 @@ h6 {
 	line-height: 1.2;
 }
 h1 {
-	font-size: 2.2em;
+	font-size: 1.8em; /* 36px */
 }
 h2 {
-	font-size: 1.8em;
+	font-size: 1.5em; /* 30px */
 }
 h3 {
-	font-size: 1.5em;
+	font-size: 1.3em; /* 26px */
 }
 h4 {
-	font-size: 1.25em;
+	font-size: 1.15em;
 }
 h5 {
-	font-size: 1.1em;
+	font-size: 1.05em;
 }
 h6 {
 	font-size: 1em;
@@ -156,33 +156,4 @@ hr {
 	clip-path: inset(50%);
 	/* added line to stop words getting smushed together (as they go onto separate lines and some screen readers do not understand line feeds as a space */
 	white-space: nowrap;
-}
-
-
-.container {
-	max-width: 720px;
-	margin: 0 auto;
-	padding: 2rem 1rem;
-}
-
-.hero {
-	margin-bottom: 3rem;
-}
-
-.lead {
-	font-size: 1.05rem;
-	color: #444;
-}
-
-.list {
-	padding-left: 1.2rem;
-	margin-bottom: 2rem;
-}
-
-.list li {
-	margin-bottom: 0.5rem;
-}
-
-.philosophy {
-	color: #555;
 }
