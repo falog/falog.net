@@ -153,3 +153,42 @@ hr {
 	/* added line to stop words getting smushed together (as they go onto separate lines and some screen readers do not understand line feeds as a space */
 	white-space: nowrap;
 }
+
+.container {
+	max-width: 720px;
+	margin: 0 auto;
+	padding: 2rem 1rem;
+}
+
+.hero {
+	margin-bottom: 3rem;
+}
+
+.title {
+	font-size: 2rem;
+	font-weight: bold;
+	margin-bottom: 1rem;
+}
+
+.lead {
+	font-size: 1.05rem;
+	color: #444;
+}
+
+.subtitle {
+	font-size: 1.4rem;
+	margin-bottom: 1rem;
+}
+
+.list {
+	padding-left: 1.2rem;
+	margin-bottom: 2rem;
+}
+
+.list li {
+	margin-bottom: 0.5rem;
+}
+
+.philosophy {
+	color: #555;
+}

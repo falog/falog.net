@@ -3,19 +3,55 @@ import BaseHead from '../components/BaseHead.astro';
 import Footer from '../components/Footer.astro';
 import Header from '../components/Header.astro';
 import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
-import { Content as Home} from '../content/home.md';
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="ja">
 	<head>
 		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
 	</head>
 	<body>
 		<Header />
-		<main>
-			<Home />
+
+		<main class="container">
+			<section class="hero">
+				<h1 class="title">ふぁろぐねっとについて</h1>
+				<p class="lead">
+					英語学習、ソフトウェア開発、ものづくりの試行錯誤を記録する個人ブログです。
+				</p>
+			</section>
+
+			<section class="content">
+				<h2 class="subtitle">このブログで書いていること</h2>
+				<ul class="list">
+					<li>英語学習のメモ・気づき</li>
+					<li>Web / 組み込み / OS などの技術ログ</li>
+					<li>個人開発や制作の記録</li>
+					<li>うまくいかなかったことも含めた思考ログ</li>
+				</ul>
+
+				<p class="philosophy">
+				「完成した成果」よりも、<br />
+				「考えた過程」を残すことを目的にしています。
+				</p>
+				
+				<p class="note">
+					学習や開発は、うまくいった部分よりも、<br />
+					つまずいた点や試行錯誤の方が、後から見返したときに価値があると感じています。
+				</p>
+				
+				<p class="note">
+					このブログは、未来の自分のための記録であり、<br />
+					同じように悩んだり遠回りしている人のヒントになれば、という気持ちで書いています。
+				</p>
+				
+				<p class="note">
+					内容は必ずしも整理されたノウハウではなく、<br />
+					途中経過や未完成な考えもそのまま残しています。
+				</p>
+			</section>
 		</main>
+
 		<Footer />
 	</body>
 </html>
