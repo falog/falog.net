@@ -3,6 +3,7 @@ title: 'ふぁろぐねっと再構築中'
 description: '約4年の停止期間を経て再構築中'
 pubDate: 2026-02-10
 heroImage: '../../assets/hospitalize.png'
+category: "blog"
 ---
 
 このサイトは、約4年間停止していました。
