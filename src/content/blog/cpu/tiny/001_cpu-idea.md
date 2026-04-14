@@ -2,7 +2,7 @@
 title: "RISC-Vを目標にCPUとOSを自作する話（計画編）"
 description: "自作CPUからRISC-Vまでの開発方針と、エミュレータを含めた全体の計画を整理する"
 pubDate: 2026-04-14
-heroImage: '../../assets/plancpuos.png'
+heroImage: '../../../../assets/plancpuos.png'
 category: "cpu"
 tags: ["CPU自作","FPGA","Rust"]
 ---
