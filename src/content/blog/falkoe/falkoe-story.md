@@ -61,7 +61,11 @@ Falkoeは、あなたの声を「修正」しません。
 
 欲しい機能やアイデアがあれば、ぜひ教えてください。
 
-macOSはデベロッパー登録していていないため、現在テスターがいません。デベロッパー登録無しで、アプリが動いた方はご連絡をお願いします。
+macOS版は現在、十分なテストができていません。
+
+動作した場合や問題を見つけた場合は、
+ぜひフィードバックをいただけると嬉しいです。
+このツールは、実際のユーザーの声によって改善されていきます。
 
 - ソース: [https://github.com/falog/falkoe](https://github.com/falog/falkoe)
 - ダウンロード: [https://github.com/falog/falkoe/releases](https://github.com/falog/falkoe/releases)
