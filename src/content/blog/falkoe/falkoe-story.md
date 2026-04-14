@@ -1,6 +1,6 @@
 ---
-title: "言語学習のためのアプリ Falkoe(ふぁるこえ)を作ってみた"
-description: "自分の声で学ぶ学習アプリ"
+title: "発音を可視化する言語学習アプリ「Falkoe(ふぁるこえ)」を作った"
+description: "自分の声を録音・可視化して発音を分析できる言語学習アプリ"
 pubDate: 2026-04-14
 heroImage: '../../../assets/falkoedev.png'
 category: "falkoe"
@@ -34,6 +34,9 @@ Falkoeでは、自分の声を使って：
 
 👉 「何が起きたか」を、自分の声で確認できます。
 
+見本の声、あなたの声、そして他の人の声。
+それらを比較しながら、発話を理解するためのツールです。
+
 ---
 
 ## Concept
@@ -45,6 +48,12 @@ Falkoeは、あなたの声を「修正」しません。
 
 見本の声、あなたの声、そして他の人の声。
 言語学習のための「声」が、ここに集まります。
+
+### こんな人に向いています：
+ 
+- 発音に自信がない人  
+- 自分の話し方を客観的に見たい人 
+- 英語や日本語の発話を記録したい人  
 
 ## Features / 機能
 
@@ -70,3 +79,7 @@ macOS版は現在、十分なテストができていません。
 - ソース: [https://github.com/falog/falkoe](https://github.com/falog/falkoe)
 - ダウンロード: [https://github.com/falog/falkoe/releases](https://github.com/falog/falkoe/releases)
 
+
+## さいごに
+まずは一度、自分の声を録音してみてください。
+思っている以上に、多くの発見があります。
