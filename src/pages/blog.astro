@@ -1,15 +1,15 @@
 ---
-import { Image } from "astro:assets";
-import { getCollection } from "astro:content";
-const allBlogPosts = await getCollection("blog");
+import { Image } from 'astro:assets';
+import { getCollection } from 'astro:content';
+const allBlogPosts = await getCollection('blog');
 ---
 
 {
   allBlogPosts.map((post) => (
     <div>
-      <Image src={post.data.cover} alt={post.data.coverAlt} />
+      <Image src={post.data.category} alt={post.data.description} />
       <h2>
-        <a href={"/blog/" + post.id}>{post.data.title}</a>
+        <a href={'/blog/' + post.id}>{post.data.title}</a>
       </h2>
     </div>
   ))
