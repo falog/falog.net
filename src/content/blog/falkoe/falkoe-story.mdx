@@ -2,7 +2,7 @@
 title: "発音を可視化する言語学習アプリ「Falkoe(ふぁるこえ)」を作った"
 description: "自分の声を録音・可視化して発音を分析できる言語学習アプリ"
 pubDate: 2026-04-14
-heroImage: '../../../assets/falkoedev.png'
+heroImage: '/src/assets/falkoedev.png'
 category: "falkoe"
 tags: ["English","LanguageLearning","Tauri"]
 ---
