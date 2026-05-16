@@ -2,7 +2,7 @@
 title: "RISC-Vを目標にCPUとOSを自作する話（実装編1：命令を削った8bit CPU）"
 description: "命令を削った最小構成の8bit CPUを設計し、加算・減算を中心とした演算の仕組みを整理する"
 pubDate: 2026-05-16
-heroImage: './design_tiny_cpu.png'
+heroImage: '/src/assets/design_tiny_cpu.png'
 category: "cpu"
 tags: ["CPU自作","FPGA","Rust"]
 ---
