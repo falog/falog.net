@@ -17,7 +17,7 @@ const posts = await getCollection('blog');
 const currentCategories = categoryGroups[category] as readonly string[];
 
 const filtered = posts.filter((p) =>
-  currentCategories.includes(p.data.category)
+  currentCategories.includes(p.data.category),
 );
 
 // 表示ラベル
@@ -30,7 +30,7 @@ const categoryLabels = {
 // カテゴリ説明
 const categoryDescriptions = {
   cpu: 'RISC-Vを目標にCPUを自作する過程や設計をまとめています',
-  web: 'AstroやTypeScriptなどのWeb開発の記録です',
+  web: 'P2PやTypeScriptなどのWeb開発の記録です',
   english: '発音や音声分析を中心とした言語学習の記録です',
 };
 
@@ -38,7 +38,6 @@ const categoryDescriptions = {
 if (!categoryGroups[category]) {
   throw new Error(`Unknown category: ${category}`);
 }
-
 ---
 
 <!doctype html>
@@ -56,16 +55,16 @@ if (!categoryGroups[category]) {
       <p>{filtered.length}件の記事</p>
 
       <ul>
-        {filtered.map((post) => (
-          <li>
-            <a href={`/blog/${post.id}`}>
-              {post.data.title}
-            </a>
-            <small>
-              （{new Date(post.data.pubDate).toLocaleDateString()}）
-            </small>
-          </li>
-        ))}
+        {
+          filtered.map((post) => (
+            <li>
+              <a href={`/blog/${post.id}`}>{post.data.title}</a>
+              <small>
+                （{new Date(post.data.pubDate).toLocaleDateString()}）
+              </small>
+            </li>
+          ))
+        }
       </ul>
 
       <p><a href="/">← トップに戻る</a></p>
