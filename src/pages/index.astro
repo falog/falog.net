@@ -24,7 +24,7 @@ function getPostsByCategory(key: keyof typeof categoryGroups) {
     .filter((p) =>
       (categoryGroups[key] as readonly string[]).includes(p.data.category),
     )
-    .sort((a, b) => b.data.pubDate - a.data.pubDate)
+    .sort((a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime())
     .slice(0, 3);
 }
 
