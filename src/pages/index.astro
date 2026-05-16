@@ -3,6 +3,32 @@ import BaseHead from '../components/BaseHead.astro';
 import Footer from '../components/Footer.astro';
 import Header from '../components/Header.astro';
 import { SITE_DESCRIPTION } from '../consts';
+import { getCollection } from 'astro:content';
+
+const categoryGroups = {
+  cpu: ['cpu', 'riscv'],
+  web: ['web'],
+  english: ['english', 'falkoe'],
+} as const;
+
+const categoryLabels = {
+  cpu: 'CPU / RISC-V',
+  web: 'Web開発',
+  english: '英語・言語学習',
+};
+
+const posts = await getCollection('blog');
+
+function getPostsByCategory(key: keyof typeof categoryGroups) {
+  return posts
+    .filter((p) =>
+      (categoryGroups[key] as readonly string[]).includes(p.data.category),
+    )
+    .sort((a, b) => b.data.pubDate - a.data.pubDate)
+    .slice(0, 3);
+}
+
+const order: (keyof typeof categoryGroups)[] = ['cpu', 'web', 'english'];
 ---
 
 <!doctype html>
@@ -14,6 +40,46 @@ import { SITE_DESCRIPTION } from '../consts';
     <Header />
     <main>
       <h1>ふぁろぐねっと</h1>
+
+      <p>
+        CPUと音声（発音・言語）を「構造」として理解するエンジニアの記録ブログ
+      </p>
+
+      <!-- カテゴリ導線 -->
+      <h2>カテゴリ</h2>
+
+      {
+        order.map((key) => {
+          const list = getPostsByCategory(key);
+
+          return (
+            <section>
+              <h3>
+                <a href={`/category/${key}`}>{categoryLabels[key]}</a>
+              </h3>
+
+              <ul>
+                {list.map((post) => (
+                  <li>
+                    <a href={`/blog/${post.id}`}>{post.data.title}</a>
+                  </li>
+                ))}
+              </ul>
+
+              <p>
+                <a href={`/category/${key}`}>→ もっと見る</a>
+              </p>
+            </section>
+          );
+        })
+      }
+
+      <p>
+        → <a href="/blog">記事一覧はこちら</a>
+      </p>
+
+      <!-- ここから元の文章（下に移動） -->
+      <h2>このブログについて</h2>
 
       <p>
         CPU自作やソフトウェア開発をしながら、
@@ -55,9 +121,6 @@ import { SITE_DESCRIPTION } from '../consts';
       <p class="note">
         内容は整理されたノウハウというよりも、<br />
         途中経過や未完成な考えも含めてそのまま残しています。
-      </p>
-      <p>
-        → <a href="/blog">記事一覧はこちら</a>
       </p>
     </main>
 
