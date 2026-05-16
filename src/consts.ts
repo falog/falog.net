@@ -5,3 +5,4 @@ export const SITE_TITLE = 'ふぁろぐねっと';
 export const SUB_TITLE = '初心者をやめなかった人';
 export const SITE_DESCRIPTION =
   '初心者をやめなかった人のための、CPU自作・OS開発・回路設計・Web開発・言語学習の記録ブログ。';
+export const BLOG_LIST = 'ブログ記事一覧';
