@@ -1,6 +1,9 @@
 ---
-import { getCollection } from 'astro:content';
+import { getCollection, type CollectionEntry } from 'astro:content';
 import { categoryGroups } from '../../utils/category';
+import Layout from '../../layouts/Page.astro';
+import { Image } from 'astro:assets';
+import FormattedDate from '../../components/FormattedDate.astro';
 
 type CategoryKey = keyof typeof categoryGroups;
 
@@ -16,9 +19,14 @@ const posts = await getCollection('blog');
 
 const currentCategories = categoryGroups[category] as readonly string[];
 
-const filtered = posts.filter((p) =>
-  currentCategories.includes(p.data.category),
-);
+const filtered = posts
+  .filter(
+    (p) => currentCategories.includes(p.data.category) && p.data.pubDate, // ← これ重要
+  )
+  .sort(
+    (a: CollectionEntry<'blog'>, b: CollectionEntry<'blog'>) =>
+      (b.data.pubDate?.getTime() ?? 0) - (a.data.pubDate?.getTime() ?? 0),
+  );
 
 // 表示ラベル
 const categoryLabels = {
@@ -33,41 +41,96 @@ const categoryDescriptions = {
   web: 'P2PなどのWeb開発の記録です',
   english: '発音や音声分析を中心とした言語学習の記録です',
 };
-
-// 不正なカテゴリ対策（念のため）
-if (!categoryGroups[category]) {
-  throw new Error(`Unknown category: ${category}`);
-}
 ---
 
-<!doctype html>
-<html lang="ja">
-  <head>
-    <meta charset="UTF-8" />
-    <title>{categoryLabels[category]}</title>
-  </head>
-  <body>
-    <main>
-      <h1>{categoryLabels[category]}</h1>
+<Layout>
+  <h1>{categoryLabels[category]}</h1>
 
-      <p>{categoryDescriptions[category]}</p>
+  <p>{categoryDescriptions[category]}</p>
 
-      <p>{filtered.length}件の記事</p>
+  <p>{filtered.length}件の記事</p>
 
-      <ul>
-        {
-          filtered.map((post) => (
+  <section>
+    {
+      filtered.length === 0 ? (
+        <p>まだ記事がありません</p>
+      ) : (
+        <ul class="post-grid">
+          {filtered.map((post) => (
             <li>
-              <a href={`/blog/${post.id}`}>{post.data.title}</a>
-              <small>
-                （{new Date(post.data.pubDate).toLocaleDateString()}）
-              </small>
-            </li>
-          ))
-        }
-      </ul>
+              <a href={`/blog/${post.id}/`}>
+                {post.data.heroImage && (
+                  <Image
+                    width={720}
+                    height={360}
+                    src={post.data.heroImage}
+                    alt={post.data.title}
+                  />
+                )}
+                <h4 class="title">{post.data.title}</h4>
+                <div class="date">
+                  {post.data.pubDate ? (
+                    <FormattedDate date={post.data.pubDate} />
+                  ) : (
+                    <span>日付なし</span>
+                  )}
 
-      <p><a href="/">← トップに戻る</a></p>
-    </main>
-  </body>
-</html>
+                  {post.data.updatedDate && (
+                    <div class="last-updated-on">
+                      Last updated on{' '}
+                      <FormattedDate date={post.data.updatedDate} />
+                    </div>
+                  )}
+                </div>
+              </a>
+            </li>
+          ))}
+        </ul>
+      )
+    }
+  </section>
+
+  <p><a href="/">← トップに戻る</a></p>
+
+  <style>
+    .post-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      list-style: none;
+      padding: 0;
+    }
+
+    .post-grid li {
+      width: calc(50% - 1rem);
+    }
+
+    .post-grid li:first-child {
+      width: 100%;
+      text-align: center;
+    }
+
+    .post-grid img {
+      width: 100%;
+      border-radius: 12px;
+      margin-bottom: 0.5rem;
+    }
+
+    .title {
+      margin: 0;
+      line-height: 1.2;
+    }
+
+    .date {
+      margin: 0;
+      color: gray;
+    }
+
+    @media (max-width: 720px) {
+      .post-grid li {
+        width: 100%;
+        text-align: center;
+      }
+    }
+  </style>
+</Layout>
