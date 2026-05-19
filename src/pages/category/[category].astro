@@ -43,7 +43,10 @@ const categoryDescriptions = {
 };
 ---
 
-<Layout>
+<Layout
+  title={categoryLabels[category]}
+  description={categoryDescriptions[category]}
+>
   <h1>{categoryLabels[category]}</h1>
 
   <p>{categoryDescriptions[category]}</p>

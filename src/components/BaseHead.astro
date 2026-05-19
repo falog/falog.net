@@ -22,7 +22,10 @@ const {
   image = FallbackImage,
   type = 'website',
 } = Astro.props;
-const pageTitle = title ?? `${SITE_TITLE} | ${SUB_TITLE}`;
+
+const pageTitle = title
+  ? `${SITE_TITLE} | ${title}`
+  : `${SITE_TITLE} | ${SUB_TITLE}`;
 ---
 
 <meta charset="utf-8" />
@@ -58,4 +61,3 @@ const pageTitle = title ?? `${SITE_TITLE} | ${SUB_TITLE}`;
 <meta property="twitter:description" content={description} />
 <meta property="twitter:image" content={new URL(image.src, Astro.site)} />
 <meta name="twitter:creator" content="@fal_falog" />
-<meta name="twitter:image:alt" content={pageTitle} />
