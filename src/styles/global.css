@@ -178,17 +178,18 @@ hr {
 
 pre {
   overflow-x: auto;
-  padding: 12px;
+  white-space: pre;
+  line-height: 1.6;
 }
 
 code {
-  font-size: 0.85rem;
-  line-height: 1.4;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.9rem;
 }
 
-/* スマホだけ調整 */
 @media (max-width: 600px) {
-  code {
-    font-size: 0.75rem;
+  pre code {
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
   }
 }
