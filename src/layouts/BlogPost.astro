@@ -82,6 +82,51 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
             <hr />
           </div>
           <slot />
+          <script>
+            document
+              .querySelectorAll<HTMLAnchorElement>('[data-lightbox]')
+              .forEach((el) => {
+                el.addEventListener('click', (e) => {
+                  e.preventDefault();
+
+                  const overlay = document.createElement('div');
+                  overlay.style = `
+                    position: fixed;
+                    inset: 0;
+                    background: rgba(0,0,0,0.8);
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    z-index: 9999;
+                  `;
+
+                  const img = document.createElement('img');
+                  img.src = el.href;
+                  img.style = 'max-width: 90%; max-height: 90%;';
+
+                  overlay.appendChild(img);
+
+                  document.body.style.overflow = 'hidden';
+
+                  overlay.addEventListener('click', () => {
+                    overlay.remove();
+                    document.body.style.overflow = '';
+                  });
+
+                  img.addEventListener('click', (e) => e.stopPropagation());
+
+                  document.addEventListener('keydown', function esc(e) {
+                    if (e.key === 'Escape') {
+                      overlay.remove();
+                      document.body.style.overflow = '';
+                      document.removeEventListener('keydown', esc);
+                    }
+                  });
+
+                  document.body.appendChild(overlay);
+                });
+              });
+          </script>
           <script
             src="https://giscus.app/client.js"
             data-repo="falog/falog.net"
