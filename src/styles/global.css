@@ -157,3 +157,21 @@ hr {
 	/* added line to stop words getting smushed together (as they go onto separate lines and some screen readers do not understand line feeds as a space */
 	white-space: nowrap;
 }
+
+.opcode-table {
+  border-collapse: collapse;
+  width: 100%;
+  max-width: 400px;
+  margin: 16px auto;
+}
+
+.opcode-table th,
+.opcode-table td {
+  border: 1px solid #ccc;
+  padding: 8px;
+  text-align: center;
+}
+
+.opcode-table th {
+  background: #f0f0f0;
+}
