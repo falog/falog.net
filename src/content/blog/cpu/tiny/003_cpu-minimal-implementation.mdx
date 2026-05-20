@@ -110,43 +110,59 @@ fn main() {
 ### 命令の動作
 * ADD: 指定された2つのレジスタの値を加算し、
     結果を最初のレジスタに格納する。
+<div class="img-wrap">
 <a href="/images/cpu/add.png" data-lightbox>
   <img src="/images/cpu/add.png" alt="ADD" />
 </a>
+</div>
 * SUB: 指定された2つのレジスタの値を減算し、
     結果を最初のレジスタに格納する。
+<div class="img-wrap">
 <a href="/images/cpu/sub.png" data-lightbox>
   <img src="/images/cpu/sub.png" alt="SUB" />
 </a>
+</div>
 * LD: 指定されたメモリアドレスから値を読み取り、
     指定されたレジスタに格納する。
+<div class="img-wrap">
 <a href="/images/cpu/ld.png" data-lightbox>
   <img src="/images/cpu/ld.png" alt="LD" />
 </a>
+</div>
 * ST: 指定されたレジスタの値を読み取り、
     指定されたメモリアドレスに書き込む。
+<div class="img-wrap">
 <a href="/images/cpu/st.png" data-lightbox>
   <img src="/images/cpu/st.png" alt="ST" />
 </a>
+</div>
 * JMP: 指定されたアドレスに無条件でジャンプする。   
     ジャンプ先は命令インデックスで指定され、内部で3倍される。
+<div class="img-wrap">
 <a href="/images/cpu/jmp.png" data-lightbox>
   <img src="/images/cpu/jmp.png" alt="JMP" />
 </a>
+</div>
 * JE: 指定されたレジスタの値が0の場合に、
     指定されたアドレスにジャンプする。そうでない場合は次の
     命令に進む。
+<div class="img-wrap">
 <a href="/images/cpu/je.png" data-lightbox>
   <img src="/images/cpu/je.png" alt="JE" />
 </a>
+</div>
 * MOV: 指定された2つのレジスタの値をコピーする。
+<div class="img-wrap">
 <a href="/images/cpu/mov.png" data-lightbox>
   <img src="/images/cpu/mov.png" alt="MOV" />
 </a>
+</div>
 * HLT: CPUの実行を停止する。
+<div class="img-wrap">
 <a href="/images/cpu/hlt.png" data-lightbox>
   <img src="/images/cpu/hlt.png" alt="HLT" />
 </a>
+</div>
 
 ## CPUの実行の流れ
 
@@ -604,7 +620,7 @@ HLT命令の場合は、停止フラグを立てて実行を終了する。
 ここからは、実際にCPUがどのように命令を実行しているのかを、
 ログを使って少しだけ詳しく見ていく。
 
-```output
+```text
 PC=0 Instruction { opcode: Add, op1: 0, op2: 1 } 
 -----------------------------------------------
 R0=2 R1=3 R2=0 R3=0 
@@ -619,7 +635,7 @@ R0=5 R1=3 R2=0 R3=0
 これで、命令がどのように実行されているか、レジスタの値がどのように変化しているかを確認できるようになる。  
 掛け算を見てみよう  
 
-```output
+```text
 PC=0 Instruction { opcode: Add, op1: 0, op2: 2 } 
 -----------------------------------------------
 R0=0 R1=4 R2=3 R3=1 
@@ -689,7 +705,7 @@ R0=12 R1=0 R2=3 R3=1
 
 ループでうまく動いていることが確認できる。  
 最後に割り算を見てみよう  
-```output
+```text
 PC=0 Instruction { opcode: Sub, op1: 1, op2: 2 } 
 -----------------------------------------------
 R0=0 R1=10 R2=2 R3=1 
@@ -736,7 +752,7 @@ R0=5 R1=0 R2=2 R3=1
 ```
 ループでうまく動いていることが確認できる。
 割り切れない数を試してみよう
-```output
+```text
 PC=0 Instruction { opcode: Sub, op1: 1, op2: 2 } 
 -----------------------------------------------
 R0=0 R1=7 R2=2 R3=1 

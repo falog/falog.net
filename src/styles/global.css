@@ -193,3 +193,15 @@ code {
 pre code {
   white-space: pre;
 }
+
+.img-wrap {
+  margin: 16px 0;
+  text-align: center;
+}
+
+.img-wrap img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  display: block;
+}
