@@ -452,7 +452,15 @@ impl CPU {
         }
         a
     }
+```
 
+## 命令を実行する execute
+
+CPUの中心となる処理が execute である。
+opcode に応じて処理を切り替える。
+
+
+```rust
     fn execute(&mut self, inst: Instruction) {
         match inst.opcode {
             Opcode::Add => {
@@ -504,7 +512,12 @@ impl CPU {
             }
         }
     }
+ ```
+8bit値で減算を行うため、  
+0未満になると値はラップアラウンドする。  
+（例: 0 - 1 = 255）  
 
+```rust
     pub fn step(&mut self) {
         let inst = self.fetch();
 
