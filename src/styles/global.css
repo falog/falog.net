@@ -178,8 +178,10 @@ hr {
 
 pre {
   overflow-x: auto;
-  white-space: pre;
-  line-height: 1.6;
+  padding: 20px;
+  line-height: 1.7;
+  border-radius: 10px;
+  background: #0f172a;
 }
 
 code {
@@ -187,9 +189,7 @@ code {
   font-size: 0.9rem;
 }
 
-@media (max-width: 600px) {
-  pre code {
-    white-space: pre-wrap;
-    overflow-wrap: anywhere;
-  }
+/* スマホでも折り返さない（Zenn寄せ） */
+pre code {
+  white-space: pre;
 }
