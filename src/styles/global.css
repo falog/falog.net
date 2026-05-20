@@ -206,3 +206,9 @@ pre code {
   border-radius: 8px;
   display: block;
 }
+
+@media (max-width: 768px) {
+  img {
+    max-width: 90%;
+  }
+}
