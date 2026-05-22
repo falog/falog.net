@@ -4,5 +4,5 @@ export const categoryGroups = {
   languages: ['english', 'russian'],
   personalprojects: ['falkoe'],
   wazzefalradio: ['wazzefalradio'],
-  others: ['daily', 'blog'],
+  others: ['daily', 'blog', 'other'],
 } as const;
