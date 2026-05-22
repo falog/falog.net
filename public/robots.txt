@@ -1,0 +1,3 @@
+User-agent: * 
+Allow: / 
+Sitemap: https://falog.net/sitemap-index.xml
