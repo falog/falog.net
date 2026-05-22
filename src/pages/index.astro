@@ -9,16 +9,16 @@ const categoryGroups = {
   cpu: ['cpu', 'riscv', 'os'],
   web: ['web'],
   languages: ['english', 'russian'],
-  falkoe: ['falkoe'],
+  personalprojects: ['falkoe'],
   wazzefalradio: ['wazzefalradio'],
-  others: ['others', 'daily', 'blog'],
+  others: ['other', 'daily', 'blog'],
 } as const;
 
 const categoryLabels = {
   cpu: 'CPU / RISC-V / OS自作',
   web: 'Web開発',
   languages: '英語・言語学習',
-  falkoe: 'Falkoe(ふぁるこえ)',
+  personalprojects: '個人開発',
   wazzefalradio: '方言をエンタメとして楽しむ「わっぜふぁるらじ(YouTube)」',
   others: 'その他 日常的なブログなど',
 };
@@ -38,7 +38,7 @@ const order: (keyof typeof categoryGroups)[] = [
   'cpu',
   'web',
   'languages',
-  'falkoe',
+  'personalprojects',
   'wazzefalradio',
   'others',
 ];

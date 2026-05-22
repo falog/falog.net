@@ -2,7 +2,7 @@ export const categoryGroups = {
   cpu: ['cpu', 'riscv', 'os'],
   web: ['web'],
   languages: ['english', 'russian'],
-  falkoe: ['falkoe'],
+  personalprojects: ['falkoe'],
   wazzefalradio: ['wazzefalradio'],
-  others: ['others', 'daily', 'blog'],
+  others: ['daily', 'blog'],
 } as const;
