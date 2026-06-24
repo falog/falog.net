@@ -9,7 +9,7 @@ tags: ["CPU自作","FPGA","Rust"]
 
 ## はじめに
 
-[前回](./003_cpu-minimal-implementation/)は、最小構成の8bit CPUをRustで実装した。  
+[前回](003_cpu-minimal-implementation/)は、最小構成の8bit CPUをRustで実装した。  
 今回は、そのCPUがどのように命令を実行するのか、fetch-decode-executeの流れを解説する。  
 CPUが命令を実行するためには、まず命令がメモリに配置されている必要がある。  
 そして、CPUは命令を順番に読み取って（fetch）、解釈して（decode）、実行する（execute）というサイクルを繰り返す。  
