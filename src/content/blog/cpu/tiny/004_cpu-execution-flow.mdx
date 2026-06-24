@@ -9,7 +9,7 @@ tags: ["CPU自作","FPGA","Rust"]
 
 ## はじめに
 
-[前回](./003_cpu-minimal-implementation.mdx)は、最小構成の8bit CPUをRustで実装した。  
+[前回](./003_cpu-minimal-implementation/)は、最小構成の8bit CPUをRustで実装した。  
 今回は、そのCPUがどのように命令を実行するのか、fetch-decode-executeの流れを解説する。  
 CPUが命令を実行するためには、まず命令がメモリに配置されている必要がある。  
 そして、CPUは命令を順番に読み取って（fetch）、解釈して（decode）、実行する（execute）というサイクルを繰り返す。  
@@ -163,10 +163,12 @@ Instruction {...}  （プログラム内部）
 [falog_tiny_cpu (GitHub)](https://github.com/falog/falog_tiny_cpu) のコードを見ると、他の命令も同様にfetch-decode-executeの流れで実装されていることが分かると思う。  
 
 
-## まとめ
+## おわりに
 今回は、Rustで実装した最小構成の8bit CPUを題材に、命令がメモリに配置され、fetch-decode-executeで実行される流れを解説した。  
 
 CPUは、テキストのコードを直接実行しているのではなく、メモリ上のバイト列を順番に処理している。  
 私たちが書いたコードは最終的にこの形に変換され、CPUはそれを1つずつ実行しているにすぎない。  
 
-この基本的な仕組みを理解することで、CPUの動作だけでなく、今後の命令設計やアセンブラの理解にも繋がっていく。
+この基本的な仕組みを理解することで、CPUの動作だけでなく、今後の命令設計やアセンブラの理解にも繋がっていく。__
+
+次回は、VHDLでCPUを実装する際の命令実行の流れについて解説する予定だ。
