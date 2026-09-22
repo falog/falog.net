@@ -15,11 +15,10 @@ const categoryGroups = {
 } as const;
 
 const categoryLabels = {
-  cpu: 'CPU / RISC-V / OS自作',
+  cpu: 'CPU / RISC-V / OS自作 / ゲーム機自作',
   web: 'Web開発',
   languages: '英語・言語学習',
   personalprojects: '個人開発',
-  wazzefalradio: '方言をエンタメとして楽しむ「わっぜふぁるらじ(YouTube)」',
   others: 'その他 日常的なブログなど',
 };
 
@@ -39,7 +38,6 @@ const order: (keyof typeof categoryGroups)[] = [
   'web',
   'languages',
   'personalprojects',
-  'wazzefalradio',
   'others',
 ];
 ---
@@ -107,7 +105,7 @@ const order: (keyof typeof categoryGroups)[] = [
 
       <h2>このブログで扱うテーマ</h2>
       <ul>
-        <li>RISC-V / CPU自作 / OS開発</li>
+        <li>RISC-V / CPU自作 / OS開発 / ゲーム機開発</li>
         <li>発音・ピッチアクセント・方言の音声分析</li>
         <li>
           英語などの言語学習・発音練習の記録（発音・音声の構造理解を中心に）
